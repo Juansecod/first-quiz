@@ -14,7 +14,7 @@
 # Read the test suite to know the values that these functions should return.
 
 
-def get_city_temperature(city):
+def get_city_temperature(city: str) -> int:
     """
     The function "get_city_temperature" returns the temperature of a given city.
 

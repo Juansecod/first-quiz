@@ -15,8 +15,8 @@
 # it. As always, there is a test suite that checks the result. It is in 
 # `question2_test.py.`
 
-def swapper(tuple_items: tuple):
+def swapper(tuple_items: tuple) -> tuple:
   return (tuple_items[1], tuple_items[0])
 
-def run_swapper(list_of_tuples):
+def run_swapper(list_of_tuples: list) -> list:
   return list(map(swapper, list_of_tuples))
