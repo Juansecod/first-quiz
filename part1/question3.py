@@ -26,10 +26,53 @@
 # formulas and their outputs in the test file, `question3_test.py`.
 
 # This function should return an oven instance!
-def make_oven():
-  None
 
-def alchemy_combine(oven, ingredients, temperature):
+class Oven:
+  ingredients: list
+  output: str
+  output_freeze: dict = {
+    "snow": ["water", "air"],
+  }
+  output_boil: dict = {
+    "gold": ["lead", "mercury"],
+    "pizza": ["cheese", "dough", "tomato"],
+  }
+  output_wait: dict = {}
+  
+  def __init__(self):
+    self.ingredients = []
+  
+  def add(self, item: str) -> None:
+    self.ingredients.append(item)
+
+  def freeze(self) -> None:
+    self.output = "Something freezed"
+    for output in self.output_freeze:
+      if set(self.output_freeze.get(output)) == set(self.ingredients):
+        self.output = output
+        break
+
+  def boil(self) -> None:
+    self.output = "Something boiled"
+    for output in self.output_boil:
+      if (set(self.output_boil.get(output)) == set(self.ingredients)):
+        self.output = output
+        break
+  
+  def wait(self) -> None:
+    self.output = "Ingredients combined"
+    for output in self.output_wait:
+      if (set(self.output_wait.get(output)) == set(self.ingredients)):
+        self.output = output
+        break
+  
+  def get_output(self) -> str:
+    return self.output
+
+def make_oven() -> Oven:
+  return Oven()
+
+def alchemy_combine(oven: Oven, ingredients: list, temperature: int):
   
   for item in ingredients:
     oven.add(item)
