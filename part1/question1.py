@@ -13,23 +13,44 @@
 # need to be fixed. The test suite in `question1_test.py` will verify the output.
 # Read the test suite to know the values that these functions should return.
 
+
 def get_city_temperature(city):
-   if city == "Quito":
-      return 22
-   if city == "Sao Paulo":
-      return 17
-   if city == "San Francisco":
-      return 16
+    """
+    The function "get_city_temperature" returns the temperature of a given city.
 
-def get_city_weather(city):
+    :Params: 
+      city: The "city" parameter is a string that represents the name of a city
+    :Return: 
+      The temperature of the specified city.
+    """
+    temperatures = {
+       "Quito": 22,
+       "Sao Paulo": 17,
+       "San Francisco": 16,
+       "New York": 14,
+    }
 
-  sky_condition = None
+    return temperatures.get(city, None)
 
-  if city == "Sao Paulo":
-     sky_condition = "cloudy"
-  elif city == "New York":
-     sky_condition = "rainy"
+def get_city_weather(city: str) -> str:
+    """
+    The function "get_city_weather" returns the temperature and weather condition of a given city.
 
-  temperature = get_city_temperature(city)
+    :Params: 
+      city: The `city` parameter is a string that represents the name of a city
+    :return: 
+      A string that includes the temperature and weather condition of the specified city.
+    """
+    sky_condition = {
+       "Sao Paulo": "cloudy",
+       "New York": "rainy",
+       "Quito": "sunny",
+    }
 
-  return str(temperature) + " degrees and " + sky_condition
+    temperature = get_city_temperature(city)
+
+    if temperature is not None:
+        weather = sky_condition.get(city, "unknown weather")
+        return f"{temperature} degrees and {weather}"
+    else:
+        return "Unknown temperature and weather"
