@@ -25,9 +25,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: List files
-      run: |
-        ls -a
 
   test-question1:
     runs-on: ubuntu-latest
@@ -35,6 +32,7 @@ jobs:
     steps:
     - name: Run Test Question 1
       run: |
+        python -m pip list
         pytest ./part1/question1_test.py
 
   test-question2:
