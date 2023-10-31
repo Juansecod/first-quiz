@@ -20,64 +20,27 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-    - name: View actual path
-      run: |
-          pwd
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest
         if [ -f ./part1/requirements.txt ]; then pip install -r ./part1/requirements.txt; fi
-    
-
-  test-question1:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-    - name: View actual path
-      run: |
-          pwd
     - name: Run Test Question 1
       run: |
         python -m pip list
         pytest ./part1/question1_test.py
-
-  test-question2:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
     - name: Run Test Question 2
       run: |
         pytest ./part1/question2_test.py
-
-  test-question3:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
     - name: Run Test Question 3
       run: |
         pytest ./part1/question3_test.py
-
-  test-question4:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
     - name: Run Test Question 4
       run: |
         pytest ./part1/question4_test.py
-
-  test-question5:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
     - name: Run Test Question 5
       run: |
         pytest ./part1/question5_test.py
-
-  test-part1:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
     - name: Run All Test Part 1
       run: |
         pytest ./part1
