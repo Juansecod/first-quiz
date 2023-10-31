@@ -16,7 +16,12 @@
 # `question2_test.py.`
 
 def swapper(tuple_items: tuple) -> tuple:
-  return (tuple_items[1], tuple_items[0])
+  return tuple_items[::-1]
 
 def run_swapper(list_of_tuples: list) -> list:
   return list(map(swapper, list_of_tuples))
+
+if __name__ == "__main__":
+  print(run_swapper(
+    [ ("a", "b"), ("c", "d"), ("e", "f") ]
+  ))
