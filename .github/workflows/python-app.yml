@@ -1,6 +1,3 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-
 name: Python application
 
 on:
@@ -31,18 +28,52 @@ jobs:
     - name: List files
       run: |
         ls -a
+
+  test-question1:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
     - name: Run Test Question 1
       run: |
         pytest ./part1/question1_test.py
+
+  test-question2:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
     - name: Run Test Question 2
       run: |
         pytest ./part1/question2_test.py
+
+  test-question3:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
     - name: Run Test Question 3
       run: |
         pytest ./part1/question3_test.py
+
+  test-question4:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
     - name: Run Test Question 4
       run: |
         pytest ./part1/question4_test.py
+
+  test-question5:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
     - name: Run Test Question 5
       run: |
         pytest ./part1/question5_test.py
+
+  test-part1:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Run All Test Part 1
+      run: |
+        pytest ./part1
+
