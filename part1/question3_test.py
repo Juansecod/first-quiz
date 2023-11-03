@@ -19,3 +19,9 @@ def test_alchemy_combine():
     ["cheese", "dough", "tomato"],
     150
   ) == "pizza"
+  
+  assert alchemy_combine(
+    make_oven(),
+    ["bread", "ham", "cheese"],
+    10
+  ) == "sandwich"
