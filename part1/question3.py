@@ -37,7 +37,9 @@ class Oven:
     "gold": ["lead", "mercury"],
     "pizza": ["cheese", "dough", "tomato"],
   }
-  output_wait: dict = {}
+  output_wait: dict = {
+    "sandwich": ["bread", "ham", "cheese"]
+  }
   
   def __init__(self):
     self.ingredients = []
